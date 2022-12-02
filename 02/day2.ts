@@ -85,7 +85,7 @@ function part2(rounds: Part2Round[]): number {
 				break;
 			}
 			break;
-		case 'Y': // Draw12767
+		case 'Y': // Draw
 			roundScore += Outcome.Draw;
 			switch (opponent) {
 			case 'A':
