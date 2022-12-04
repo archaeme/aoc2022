@@ -1,14 +1,20 @@
 #include <errno.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdnoreturn.h>
 #include <string.h>
+
+noreturn void error(const char *msg) {
+	fprintf(stderr, "%s: %s\n", msg, strerror(errno));
+	exit(EXIT_FAILURE);
+}
 
 int main(int argc, char *argv[]) {
 	FILE *f = fopen("input.txt", "r");
 	if (!f) {
-		fprintf(stderr, "Unable to open input.txt: %s\n", strerror(errno));
-		return EXIT_FAILURE;
+		error("Unable to open input.txt");
 	}
 
 	int containing = 0;
@@ -27,6 +33,11 @@ int main(int argc, char *argv[]) {
 			overlapping++;
 		}
 	}
+	if (ferror(f)) {
+		error("Cannot read input.txt");
+	}
+
+	fclose(f);
 
 	printf("[Part 1] Fully contained pairs: %d\n", containing);
 	printf("[Part 2] Overlapping pairs: %d\n", overlapping);
