@@ -1,5 +1,3 @@
-// for getline
-#define _XOPEN_SOURCE 700
 #include <errno.h>
 #include <stdbool.h>
 #include <stdio.h>
