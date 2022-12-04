@@ -6,3 +6,4 @@ Steps to run the solutions are in each subdirectory.
 1. TypeScript (Bun)
 2. TypeScript (Bun)
 3. TypeScript (Bun)
+4. C
