@@ -15,13 +15,9 @@ int main(int argc, char *argv[]) {
 
 	int containing = 0;
 	int overlapping = 0;
-	char *line = NULL;
-	size_t n = 0;
-	while (getline(&line, &n, f) != -1) {
-		int pair1[2];
-		int pair2[2];
-		sscanf(line, "%d-%d,%d-%d", &pair1[0], &pair1[1], &pair2[0], &pair2[1]);
-
+	int pair1[2];
+	int pair2[2];
+	while (fscanf(f, "%d-%d,%d-%d\n", &pair1[0], &pair1[1], &pair2[0], &pair2[1]) == 4) {
 		bool pair1_in_pair2 = pair1[0] >= pair2[0] && pair1[1] <= pair2[1];
 		bool pair2_in_pair1 = pair2[0] >= pair1[0] && pair2[1] <= pair1[1];
 
@@ -33,7 +29,6 @@ int main(int argc, char *argv[]) {
 			overlapping++;
 		}
 	}
-	free(line);
 
 	printf("[Part 1] Fully contained pairs: %d\n", containing);
 	printf("[Part 2] Overlapping pairs: %d\n", overlapping);
