@@ -11,7 +11,7 @@ noreturn void error(const char *msg) {
 	exit(EXIT_FAILURE);
 }
 
-int main(int argc, char *argv[]) {
+int main(void) {
 	FILE *f = fopen("input.txt", "r");
 	if (!f) {
 		error("Unable to open input.txt");
