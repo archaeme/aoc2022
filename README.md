@@ -8,3 +8,4 @@ Steps to run the solutions are in each subdirectory.
 3. TypeScript (Bun)
 4. C
 5. C
+6. C
