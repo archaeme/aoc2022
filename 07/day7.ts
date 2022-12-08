@@ -29,10 +29,6 @@ class Directory {
 		let child = new Directory(this);
 		this.children.set(dirName, child);
 	}
-
-	isLeaf(): boolean {
-		return this.children.size === 0;
-	}
 }
 
 const root = new Directory();
